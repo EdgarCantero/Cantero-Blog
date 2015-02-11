@@ -1,5 +1,5 @@
 <?php
-    require_once(__DIR__ . "/../model/database.php");
+    require_once(__DIR__ . "/../model/config.php");
     
     $connection = new mysqli ($host, $username, $password, $database);
 
@@ -12,8 +12,7 @@
     
     if($query){
         echo "<p>Successfully inserted post: $title</p>";
-    }
-    else {
+    }else {
         echo"<p>$connection->error</p>";
     }
     

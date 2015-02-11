@@ -1,2 +1,7 @@
 <?php
-$path = "/Cantero-Blog";
+$path = "/Cantero-Blog/";
+
+$host = "localhost";
+$username = "root";
+$password = "root";
+$database = "blog_db";
