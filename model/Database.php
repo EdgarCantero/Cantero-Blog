@@ -1,8 +1,36 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+class Database {
+    private $connection;
+    private $host;
+    private $username;
+    private $password;
+    private $database;
+    
+    public function __construct($host, $username, $password, $database){
+    $this->host = $host; 
+    $this->username = $username;
+    $this->password = $password;
+    $this->database = $database;
+    
+    }
+    
+    public function openConnection() {
+        $this->connection = new mysqli($this->host, $this->username, $this->password, $this->password, $this->database);
+    if ($connection->connect_error) {
+        die("<p>Error: " . $connection->connect_error . "</p>");
+    }
+                }
+    
+    public function closeConnection(){
+       if(isset($this->connection)) {
+           $this->connection->close();
+       } 
+    }
+    
+    public function query($string){
+        $this->openConnection();
+        
+        $query = $this->connection->query($string);
+    }
+}
 
